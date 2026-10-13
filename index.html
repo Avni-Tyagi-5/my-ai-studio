@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#101014">
+  <title>My AI Studio — Meet Nova</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styleee.css">
+</head>
+<body>
+  <div class="app" id="app">
+    <aside class="sidebar" id="sidebar">
+      <div class="brand">
+        <div class="brand-icon"><span>✳</span></div>
+        <div class="brand-copy">
+          <strong>my<span>ai</span> studio</strong>
+          <small>YOUR CREATIVE SPACE</small>
+        </div>
+        <button class="icon-btn sidebar-close" id="closeSidebar" aria-label="Close sidebar">✕</button>
+      </div>
+
+      <button class="new-chat" id="newChat">
+        <span class="plus">＋</span> New conversation
+        <span class="shortcut">⌘ K</span>
+      </button>
+
+      <div class="sidebar-label">WORKSPACE</div>
+      <button class="nav-item active" id="homeNav"><span>⌂</span> Home</button>
+      <button class="nav-item" id="exploreNav"><span>✧</span> Explore ideas</button>
+
+      <div class="history-heading">
+        <span class="sidebar-label">RECENT CHATS</span>
+        <button class="tiny-btn" id="clearHistory" title="Clear chat history">⌫</button>
+      </div>
+      <div class="history-list" id="historyList"></div>
+
+      <div class="sidebar-bottom">
+        <div class="mini-profile">
+          <div class="avatar">N</div>
+          <div class="profile-copy">
+            <strong>Nova Assistant</strong>
+            <small>Demo mode · Free</small>
+          </div>
+          <span class="online-dot"></span>
+        </div>
+        <div class="sidebar-note">Made for curious minds. <span>✦</span></div>
+      </div>
+    </aside>
+
+    <div class="mobile-overlay" id="mobileOverlay"></div>
+
+    <main class="main">
+      <header class="topbar">
+        <div class="topbar-left">
+          <button class="icon-btn menu-btn" id="menuBtn" aria-label="Open menu">☰</button>
+          <div class="breadcrumb">Workspace <span>/</span> <strong id="pageLabel">New conversation</strong></div>
+        </div>
+        <div class="topbar-actions">
+          <div class="demo-badge"><span></span> DEMO MODE</div>
+          <button class="icon-btn theme-btn" id="themeToggle" aria-label="Toggle theme" title="Toggle light/dark theme">☼</button>
+        </div>
+      </header>
+
+      <section class="chat-scroll" id="chatScroll">
+        <div class="welcome" id="welcome">
+          <div class="welcome-orb">
+            <div class="orb-ring ring-one"></div>
+            <div class="orb-ring ring-two"></div>
+            <div class="orb-core">✳</div>
+            <span class="orb-spark spark-one">✦</span>
+            <span class="orb-spark spark-two">✧</span>
+          </div>
+          <div class="eyebrow"><span class="eyebrow-dot"></span> YOUR AI COMPANION</div>
+          <h1>Ideas start here.<br><span>Let's make them real.</span></h1>
+          <p class="welcome-description">
+            A little curiosity can go a long way. Explore ideas, learn something new,
+            or just start with whatever's on your mind.
+          </p>
+
+          <div class="prompt-grid">
+            <button class="prompt-card" data-prompt="Help me brainstorm a creative project">
+              <span class="prompt-icon purple">✳</span>
+              <span class="prompt-title">Brainstorm ideas</span>
+              <span class="prompt-desc">Turn a random thought into something great.</span>
+              <span class="prompt-arrow">↗</span>
+            </button>
+            <button class="prompt-card" data-prompt="Teach me something interesting in a simple way">
+              <span class="prompt-icon blue">⌘</span>
+              <span class="prompt-title">Learn something</span>
+              <span class="prompt-desc">Understand a new topic, without the jargon.</span>
+              <span class="prompt-arrow">↗</span>
+            </button>
+            <button class="prompt-card" data-prompt="Give me ideas for a beautiful personal website">
+              <span class="prompt-icon pink">◈</span>
+              <span class="prompt-title">Create something</span>
+              <span class="prompt-desc">Design, write, build. Start anywhere.</span>
+              <span class="prompt-arrow">↗</span>
+            </button>
+            <button class="prompt-card" data-prompt="Give me a fun challenge to try today">
+              <span class="prompt-icon orange">↗</span>
+              <span class="prompt-title">Surprise me</span>
+              <span class="prompt-desc">A fresh perspective or a fun little challenge.</span>
+              <span class="prompt-arrow">↗</span>
+            </button>
+          </div>
+          <div class="demo-note"><span>ⓘ</span> You're exploring a local demo. Responses are simulated, not generated by live AI.</div>
+        </div>
+
+        <div class="messages" id="messages" aria-live="polite"></div>
+      </section>
+
+      <footer class="composer-area">
+        <form class="composer" id="chatForm">
+          <textarea id="messageInput" rows="1" placeholder="Ask Nova anything..." aria-label="Your message"></textarea>
+          <div class="composer-bottom">
+            <div class="composer-tools">
+              <button type="button" class="tool-btn" id="suggestBtn" title="Show a prompt idea"><span>✧</span> Inspire me</button>
+              <span class="composer-divider"></span>
+              <span class="composer-hint">Just start typing <kbd>↵</kbd></span>
+            </div>
+            <button type="submit" class="send-btn" id="sendBtn" aria-label="Send message" disabled>
+              <span>↑</span>
+            </button>
+          </div>
+        </form>
+        <div class="footer-caption">MY AI STUDIO <span>·</span> A SPACE TO EXPLORE</div>
+      </footer>
+    </main>
+  </div>
+
+  <div class="toast" id="toast" role="status"></div>
+  <script src="script.js"></script>
+</body>
+</html>
